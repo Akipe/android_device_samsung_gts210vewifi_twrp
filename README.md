@@ -83,7 +83,7 @@ $ source build/envsetup.sh
 $ lunch omni_gts210vewifi-userdebug # for users
 # Or
 $ lunch omni_gts210vewifi-eng # for debug
-$ ALLOW_MISSING_DEPENDENCIES=true mka -j$(nproc) recoveryimage
+$ mka -j$(nproc) recoveryimage
 ```
 
 The image will be available at :  
