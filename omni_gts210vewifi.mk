@@ -23,8 +23,8 @@ $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-he
 $(call inherit-product, vendor/omni/config/common_tablet.mk)
 
 
-PRODUCT_NAME := omni_gts210vewifi
-PRODUCT_DEVICE := gts210vewifi
-PRODUCT_BRAND := samsung
-PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := SM-T813
+PRODUCT_NAME            := omni_gts210vewifi
+PRODUCT_DEVICE          := gts210vewifi
+PRODUCT_BRAND           := samsung
+PRODUCT_MANUFACTURER    := samsung
+PRODUCT_MODEL           := SM-T813
