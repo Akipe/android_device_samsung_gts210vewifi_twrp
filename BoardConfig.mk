@@ -27,30 +27,30 @@
 TARGET_OTA_ASSERT_DEVICE := gts210vewifi
 
 # Bootloader
-TARGET_NO_BOOTLOADER 			    := true
-TARGET_BOOTLOADER_BOARD_NAME 	:= msm8952
+TARGET_NO_BOOTLOADER            := true
+TARGET_BOOTLOADER_BOARD_NAME    := msm8952
 
 # Platform
-TARGET_BOARD_PLATFORM 		:= msm8952
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno510
+TARGET_BOARD_PLATFORM       := msm8952
+TARGET_BOARD_PLATFORM_GPU   := qcom-adreno510
 
 # Architecture
-TARGET_ARCH 			  := arm64
-TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI 			:= arm64-v8a
-TARGET_CPU_ABI2 		:=
-TARGET_CPU_VARIANT 	:= cortex-a53
+TARGET_ARCH                 := arm64
+TARGET_ARCH_VARIANT         := armv8-a
+TARGET_CPU_ABI              := arm64-v8a
+TARGET_CPU_ABI2             :=
+TARGET_CPU_VARIANT          := cortex-a53
 
-TARGET_2ND_ARCH 		    := arm
-TARGET_2ND_ARCH_VARIANT := armv8-a
-TARGET_2ND_CPU_ABI 		  := armeabi-v7a
-TARGET_2ND_CPU_ABI2 	  := armeabi
-TARGET_2ND_CPU_VARIANT 	:= cortex-a53.a57
+TARGET_2ND_ARCH             := arm
+TARGET_2ND_ARCH_VARIANT     := armv8-a
+TARGET_2ND_CPU_ABI          := armeabi-v7a
+TARGET_2ND_CPU_ABI2         := armeabi
+TARGET_2ND_CPU_VARIANT      := cortex-a53.a57
 
-TARGET_USES_64_BIT_BINDER := true
+TARGET_USES_64_BIT_BINDER   := true
 
 #### Kernel
-BOARD_KERNEL_CMDLINE      := \
+BOARD_KERNEL_CMDLINE        := \
   console=null \
   androidboot.hardware=qcom \
   androidboot.wificountrycode=00 \
@@ -59,55 +59,55 @@ BOARD_KERNEL_CMDLINE      := \
   androidboot.bootdevice=7824900.sdhci \
   lpm_levels.sleep_disabled=1 \
   earlyprintk
-BOARD_KERNEL_CMDLINE      += androidboot.selinux=permissive
-BOARD_KERNEL_PAGESIZE     := 2048
-BOARD_KERNEL_BASE 			  := 0x80000000
-BOARD_RAMDISK_OFFSET      := 0x02000000
-BOARD_KERNEL_TAGS_OFFSET  := 0x01E00000
-BOARD_MKBOOTIMG_ARGS 		  := \
+BOARD_KERNEL_CMDLINE        += androidboot.selinux=permissive
+BOARD_KERNEL_PAGESIZE       := 2048
+BOARD_KERNEL_BASE           := 0x80000000
+BOARD_RAMDISK_OFFSET        := 0x02000000
+BOARD_KERNEL_TAGS_OFFSET    := 0x01E00000
+BOARD_MKBOOTIMG_ARGS        := \
   --base $(BOARD_KERNEL_BASE) \
   --ramdisk_offset $(BOARD_RAMDISK_OFFSET) \
   --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) \
   --board FPRPG21W000KU
 
 #### Kernel from prebuilt
-TARGET_PREBUILT_KERNEL 	:= device/samsung/gts210vewifi/prebuilt/kernel
+TARGET_PREBUILT_KERNEL  := device/samsung/gts210vewifi/prebuilt/kernel
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/gts210vewifi/mkbootimg_prebuilt.mk
-BOARD_MKBOOTIMG_ARGS 		+= \
+BOARD_MKBOOTIMG_ARGS    += \
   --dt device/samsung/gts210vewifi/prebuilt/dt.img
 
 #### Kernel build from source
 #### https://github.com/LineageOS/android_kernel_samsung_msm8976 to kernel/samsung/msm8976
-# BOARD_KERNEL_IMAGE_NAME 	:= Image.gz
+# BOARD_KERNEL_IMAGE_NAME   := Image.gz
 # BOARD_KERNEL_SEPARATED_DT := true
-# BOARD_CUSTOM_BOOTIMG 		  := true
-# BOARD_CUSTOM_BOOTIMG_MK 	:= device/samsung/gts210vewifi/mkbootimg_source.mk
-# TARGET_KERNEL_SOURCE 		  := kernel/samsung/msm8976
-# TARGET_KERNEL_CONFIG 		  := gts210vewifi_defconfig
+# BOARD_CUSTOM_BOOTIMG      := true
+# BOARD_CUSTOM_BOOTIMG_MK   := device/samsung/gts210vewifi/mkbootimg_source.mk
+# TARGET_KERNEL_SOURCE      := kernel/samsung/msm8976
+# TARGET_KERNEL_CONFIG      := gts210vewifi_defconfig
 
 # Partitions
-BOARD_BOOTIMAGE_PARTITION_SIZE 		  := 33554432
-BOARD_CACHEIMAGE_PARTITION_SIZE 	  := 209715200
-BOARD_PERSISTIMAGE_PARTITION_SIZE 	:= 33554432
-BOARD_RECOVERYIMAGE_PARTITION_SIZE 	:= 33554432
+BOARD_BOOTIMAGE_PARTITION_SIZE      := 33554432
+BOARD_CACHEIMAGE_PARTITION_SIZE     := 209715200
+BOARD_PERSISTIMAGE_PARTITION_SIZE   := 33554432
+BOARD_RECOVERYIMAGE_PARTITION_SIZE  := 33554432
 BOARD_SYSTEMIMAGE_PARTITION_SIZE    := 4404019200
-BOARD_USERDATAIMAGE_PARTITION_SIZE 	:= 26268905472
-BOARD_FLASH_BLOCK_SIZE 				      := 131072
+BOARD_USERDATAIMAGE_PARTITION_SIZE  := 26268905472
+BOARD_FLASH_BLOCK_SIZE              := 131072
 
 # Init
-TARGET_PLATFORM_DEVICE_BASE := /dev/block/platform/soc.0/
+TARGET_PLATFORM_DEVICE_BASE     := /dev/block/platform/soc.0/
 
 # Full disk encryption
-TARGET_CRYPTFS_HW_PATH 		:= vendor/qcom/opensource/commonsys/cryptfs_hw
-TARGET_HW_DISK_ENCRYPTION := true
-TW_INCLUDE_CRYPTO 			  := true
-PLATFORM_SECURITY_PATCH 	:= 2025-12-31
+TARGET_CRYPTFS_HW_PATH          := vendor/qcom/opensource/commonsys/cryptfs_hw
+TARGET_HW_DISK_ENCRYPTION       := true
+TW_INCLUDE_CRYPTO               := true
+PLATFORM_SECURITY_PATCH         := 2025-12-31
 
 # Recovery
-RECOVERY_VARIANT 				      := twrp
-TARGET_USERIMAGES_USE_EXT4 		:= true
-TARGET_USERIMAGES_USE_F2FS 		:= true
-TARGET_RECOVERY_PIXEL_FORMAT  := RGBA_8888
+RECOVERY_VARIANT                := twrp
+TARGET_USERIMAGES_USE_EXT4      := true
+TARGET_USERIMAGES_USE_F2FS      := true
+TARGET_RECOVERY_PIXEL_FORMAT    := RGBA_8888
  
 # TWRP
 TW_USE_TOOLBOX                  := true
@@ -125,18 +125,18 @@ RECOVERY_SDCARD_ON_DATA         := true
 TW_DEFAULT_EXTERNAL_STORAGE     := true
 TW_HAS_DOWNLOAD_MODE            := true
 TW_NO_REBOOT_BOOTLOADER         := true
-TW_EXTRA_LANGUAGES 				      := true
-TW_EXCLUDE_TWRPAPP 				      := true
+TW_EXTRA_LANGUAGES              := true
+TW_EXCLUDE_TWRPAPP              := true
 BOARD_SUPPRESS_SECURE_ERASE     := true
-TW_INCLUDE_NTFS_3G 				      := true
+TW_INCLUDE_NTFS_3G              := true
 TW_NEW_ION_HEAP                 := true
 TW_INCLUDE_FB2PNG               := true
 
 # Debug
-TWRP_INCLUDE_LOGCAT := true
-TARGET_USES_LOGD 	  := true
-# TWRP_EVENT_LOGGING  := true
-# TW_CRYPTO_SYSTEM_VOLD_DEBUG := true
+TWRP_INCLUDE_LOGCAT             := true
+TARGET_USES_LOGD                := true
+# TWRP_EVENT_LOGGING            := true
+# TW_CRYPTO_SYSTEM_VOLD_DEBUG   := true
 
 #### Modules
 # timezone
