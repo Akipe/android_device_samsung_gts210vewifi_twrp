@@ -2,6 +2,7 @@ TWRP device tree for Samsung Galaxy Tab S2 9.7 (gts210vewifi)
 =====================================
 
 # Informations
+
 This repository contains configuration files for compiling TWRP for the Samsung Galaxy Tab S2 9.7 (gts210vewifi).
 For now the kernel is not directly integrated, you will have to compile it.
 
@@ -25,13 +26,34 @@ Camera  | Secondary: 2.1 MP
 
 # How to build
 
+## Initialize TWRP
+
 To begin initializing the TWRP project :
 ```
 $ repo init -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
 ```
 
-You must add the manifest to retrieve the sources of the device tree and the kernel :  
-*.repo/local_manifests/twrp_samsung_gts210vewifi_android-9.0.xml*
+## Initialize device tree
+
+### Use the default prebuilt kernel
+
+You must add the manifest to retrieve the sources of the device tree :  
+`.repo/local_manifests/twrp_samsung_gts210vewifi_android-9.0.xml`
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <project path="device/samsung/msm8976"
+        name="Akipe/android_device_samsung_gts210vewifi"
+        revision="android-9.0"
+        remote="github"
+    />
+</manifest>
+```
+
+### Build kernel from source
+
+Comment thee ***Kernel from prebuilt*** lines and uncomment ***Kernel build from source*** lines from `BoardConfig.mk` and edit the manifest to retrieve the sources of the device tree and the kernel :  
+`.repo/local_manifests/twrp_samsung_gts210vewifi_android-9.0.xml`
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
@@ -47,6 +69,8 @@ You must add the manifest to retrieve the sources of the device tree and the ker
     />
 </manifest>
 ```
+
+## Download and build
 
 Then you have to download all the source codes :
 ```
@@ -76,8 +100,6 @@ https://github.com/LineageOS/android_hardware_samsung
 - Dtbtool from LineageOS/android_system_tools_dtbtool :  
 https://github.com/LineageOS/android_system_tools_dtbtool
 
-
-
 Inspired by the following devices tree :
 - [TeamWin/android_device_coolpad_C106](https://github.com/TeamWin/android_device_coolpad_C106)
 - [TeamWin/android_device_leeco_s2](https://github.com/TeamWin/android_device_leeco_s2)
@@ -85,6 +107,7 @@ Inspired by the following devices tree :
 - [rk779/twrp_device_leeco_s2](https://github.com/rk779/twrp_device_leeco_s2)
 
 # Contributor
+
 - [luk1337](https://github.com/luk1337)
 - [Akipe](https://github.com/akipe)
 - and many others...

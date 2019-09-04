@@ -64,29 +64,26 @@ BOARD_KERNEL_PAGESIZE     := 2048
 BOARD_KERNEL_BASE 			  := 0x80000000
 BOARD_RAMDISK_OFFSET      := 0x02000000
 BOARD_KERNEL_TAGS_OFFSET  := 0x01E00000
-
-#### Kernel prebuilt
-# TARGET_PREBUILT_KERNEL 	:= device/samsung/gts210vewifi/prebuilt/kernel
-# BOARD_CUSTOM_BOOTIMG_MK 	:= device/samsung/gts210vewifi/prebuilt/mkbootimg.mk
-# BOARD_MKBOOTIMG_ARGS 		:= \
-#    --base 0x80000000 \
-#    --ramdisk_offset 0x02000000 \
-#    --tags_offset 0x01E00000 \
-#    --board FPRPG21W000KU \
-#    --dt device/samsung/gts210vewifi/prebuilt/dt.img
-
-#### Kernel build from source
-BOARD_KERNEL_IMAGE_NAME 	:= Image.gz
-BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS 		  := \
   --base $(BOARD_KERNEL_BASE) \
   --ramdisk_offset $(BOARD_RAMDISK_OFFSET) \
   --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) \
   --board FPRPG21W000KU
-BOARD_CUSTOM_BOOTIMG 		  := true
-BOARD_CUSTOM_BOOTIMG_MK 	:= device/samsung/gts210vewifi/mkbootimg.mk
-TARGET_KERNEL_SOURCE 		  := kernel/samsung/msm8976
-TARGET_KERNEL_CONFIG 		  := gts210vewifi_defconfig
+
+#### Kernel from prebuilt
+TARGET_PREBUILT_KERNEL 	:= device/samsung/gts210vewifi/prebuilt/kernel
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/gts210vewifi/mkbootimg_prebuilt.mk
+BOARD_MKBOOTIMG_ARGS 		+= \
+  --dt device/samsung/gts210vewifi/prebuilt/dt.img
+
+#### Kernel build from source
+#### https://github.com/LineageOS/android_kernel_samsung_msm8976 to kernel/samsung/msm8976
+# BOARD_KERNEL_IMAGE_NAME 	:= Image.gz
+# BOARD_KERNEL_SEPARATED_DT := true
+# BOARD_CUSTOM_BOOTIMG 		  := true
+# BOARD_CUSTOM_BOOTIMG_MK 	:= device/samsung/gts210vewifi/mkbootimg_source.mk
+# TARGET_KERNEL_SOURCE 		  := kernel/samsung/msm8976
+# TARGET_KERNEL_CONFIG 		  := gts210vewifi_defconfig
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE 		  := 33554432
