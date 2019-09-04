@@ -134,3 +134,17 @@ TW_NEW_ION_HEAP                 := true
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD 	  := true
+
+#### Modules
+# timezone
+TARGET_RECOVERY_DEVICE_MODULES      += tzdata
+TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/usr/share/zoneinfo/tzdata
+# debuggerd
+TARGET_RECOVERY_DEVICE_MODULES      += debuggerd
+TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/bin/debuggerd
+# strace
+TARGET_RECOVERY_DEVICE_MODULES      += strace
+TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/bin/strace
+# twrpdec
+TARGET_RECOVERY_DEVICE_MODULES      += twrpdec
+TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_RECOVERY_ROOT_OUT)/sbin/twrpdec
