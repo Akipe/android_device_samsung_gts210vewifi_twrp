@@ -4,7 +4,7 @@ TWRP device tree for Samsung Galaxy Tab S2 9.7 (gts210vewifi)
 # Informations
 
 This repository contains configuration files for compiling TWRP for the Samsung Galaxy Tab S2 9.7 (gts210vewifi).
-For now the kernel is not directly integrated, you will have to compile it.
+You can use the prebuilt kernel or compile it from LineageOS source.
 
 # Device Configuration
 
@@ -52,7 +52,7 @@ You must add the manifest to retrieve the sources of the device tree :
 
 ### Build kernel from source
 
-Comment thee ***Kernel from prebuilt*** lines and uncomment ***Kernel build from source*** lines from `BoardConfig.mk` and edit the manifest to retrieve the sources of the device tree and the kernel :  
+Comment the ***Kernel from prebuilt*** lines and uncomment ***Kernel build from source*** lines from `BoardConfig.mk` and edit the manifest to retrieve the sources of the device tree and the kernel :  
 `.repo/local_manifests/twrp_samsung_gts210vewifi_android-9.0.xml`
 ```
 <?xml version="1.0" encoding="UTF-8"?>
