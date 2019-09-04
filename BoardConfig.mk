@@ -130,6 +130,7 @@ TW_EXCLUDE_TWRPAPP 				      := true
 BOARD_SUPPRESS_SECURE_ERASE     := true
 TW_INCLUDE_NTFS_3G 				      := true
 TW_NEW_ION_HEAP                 := true
+TW_INCLUDE_FB2PNG               := true
 
 # Debug
 TWRP_INCLUDE_LOGCAT := true
