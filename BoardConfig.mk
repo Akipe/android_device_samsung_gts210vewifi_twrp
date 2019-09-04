@@ -134,6 +134,8 @@ TW_NEW_ION_HEAP                 := true
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD 	  := true
+# TWRP_EVENT_LOGGING  := true
+# TW_CRYPTO_SYSTEM_VOLD_DEBUG := true
 
 #### Modules
 # timezone
