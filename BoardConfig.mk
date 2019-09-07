@@ -123,14 +123,19 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 TARGET_RECOVERY_QCOM_RTC_FIX    := true
 RECOVERY_SDCARD_ON_DATA         := true
 TW_DEFAULT_EXTERNAL_STORAGE     := true
-# TW_HAS_DOWNLOAD_MODE            := true # Todo: Fix the impossibility to restart in download mode in the kernel
-TW_NO_REBOOT_BOOTLOADER         := true
 TW_EXTRA_LANGUAGES              := true
 TW_EXCLUDE_TWRPAPP              := true
 BOARD_SUPPRESS_SECURE_ERASE     := true
 TW_INCLUDE_NTFS_3G              := true
 TW_NEW_ION_HEAP                 := true
 TW_INCLUDE_FB2PNG               := true
+
+### When selecting in TWRP menu :
+### Reboot to download mode -> reboot to recovery
+### Reboot to bootloader    -> reboot to download mode
+### So we do not need to activate the following two options
+# TW_NO_REBOOT_BOOTLOADER         := true
+# TW_HAS_DOWNLOAD_MODE            := true 
 
 # Debug
 TWRP_INCLUDE_LOGCAT             := true
