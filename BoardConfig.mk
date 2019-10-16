@@ -60,6 +60,7 @@ BOARD_KERNEL_CMDLINE        := \
   ehci-hcd.park=3 \
   androidboot.bootdevice=7824900.sdhci \
   lpm_levels.sleep_disabled=1 \
+  loglevel=8 \
   earlyprintk
 BOARD_KERNEL_CMDLINE        += androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE       := 2048
