@@ -111,11 +111,14 @@ BOARD_USES_QCOM_HARDWARE        := true
 # Ramdisk
 BOARD_ROOT_EXTRA_FOLDERS := dsp efs firmware firmware-modem persist
 BOARD_ROOT_EXTRA_SYMLINKS += /data/tombstones:/tombstones
+
+# Display
+TARGET_RECOVERY_PIXEL_FORMAT    := "BGRA_8888"
+
 # Recovery
 RECOVERY_VARIANT                := twrp
 TARGET_USERIMAGES_USE_EXT4      := true
 TARGET_USERIMAGES_USE_F2FS      := true
-TARGET_RECOVERY_PIXEL_FORMAT    := RGBA_8888
  
 # TWRP
 TW_USE_TOOLBOX                  := true
