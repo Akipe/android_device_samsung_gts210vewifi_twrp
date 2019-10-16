@@ -139,6 +139,10 @@ TW_NEW_ION_HEAP                 := true
 TW_INCLUDE_FB2PNG               := true
 TWRP_NEW_THEME                  := true
 
+# Disable vibration (no hardware support)
+TW_NO_HAPTICS := true
+TW_USE_QCOM_HAPTICS_VIBRATOR := no
+
 # Use qcom power hal
 TARGET_POWERHAL_VARIANT := qcom
 TARGET_USES_CPU_BOOST_HINT := true
