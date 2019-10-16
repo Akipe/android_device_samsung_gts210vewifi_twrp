@@ -22,6 +22,10 @@ $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-he
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common_tablet.mk)
 
+PRODUCT_PACKAGES += \
+	charger_res_images \
+	charger \
+	timekeep
 
 PRODUCT_NAME            := omni_gts210vewifi
 PRODUCT_DEVICE          := gts210vewifi

@@ -49,6 +49,7 @@ TARGET_2ND_CPU_VARIANT      := cortex-a53
 
 ENABLE_CPUSETS    := true
 ENABLE_SCHEDBOOST := true
+
 TARGET_USES_64_BIT_BINDER   := true
 
 #### Kernel
@@ -132,7 +133,6 @@ TW_DEFAULT_BRIGHTNESS           := 160
 TW_INPUT_BLACKLIST              := "hbtp_vm"
 TW_CUSTOM_CPU_TEMP_PATH         := /sys/devices/virtual/thermal/thermal_zone1/temp
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
-TARGET_RECOVERY_QCOM_RTC_FIX    := true
 RECOVERY_SDCARD_ON_DATA         := true
 TW_DEFAULT_EXTERNAL_STORAGE     := true
 TW_EXTRA_LANGUAGES              := true
@@ -142,6 +142,9 @@ TW_INCLUDE_NTFS_3G              := true
 TW_NEW_ION_HEAP                 := true
 TW_INCLUDE_FB2PNG               := true
 TWRP_NEW_THEME                  := true
+
+# Time
+TARGET_RECOVERY_QCOM_RTC_FIX := false
 
 # Disable vibration (no hardware support)
 TW_NO_HAPTICS := true
@@ -187,3 +190,6 @@ TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/bin/strace
 # twrpdec
 TARGET_RECOVERY_DEVICE_MODULES      += twrpdec
 TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_RECOVERY_ROOT_OUT)/sbin/twrpdec
+# timekeep
+TARGET_RECOVERY_DEVICE_MODULES      += timekeep
+TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/vendor/bin/timekeep
