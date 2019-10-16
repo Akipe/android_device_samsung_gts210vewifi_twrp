@@ -39,14 +39,16 @@ TARGET_ARCH                 := arm64
 TARGET_ARCH_VARIANT         := armv8-a
 TARGET_CPU_ABI              := arm64-v8a
 TARGET_CPU_ABI2             :=
-TARGET_CPU_VARIANT          := cortex-a53
+TARGET_CPU_VARIANT          := generic
 
 TARGET_2ND_ARCH             := arm
 TARGET_2ND_ARCH_VARIANT     := armv8-a
 TARGET_2ND_CPU_ABI          := armeabi-v7a
 TARGET_2ND_CPU_ABI2         := armeabi
-TARGET_2ND_CPU_VARIANT      := cortex-a53.a57
+TARGET_2ND_CPU_VARIANT      := cortex-a53
 
+ENABLE_CPUSETS    := true
+ENABLE_SCHEDBOOST := true
 TARGET_USES_64_BIT_BINDER   := true
 
 #### Kernel
@@ -95,7 +97,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE  := 26268905472
 BOARD_FLASH_BLOCK_SIZE              := 131072
 
 # Init
-TARGET_PLATFORM_DEVICE_BASE     := /dev/block/platform/soc.0/
+TARGET_PLATFORM_DEVICE_BASE     := /devices/soc.0/
 
 # Full disk encryption
 TARGET_CRYPTFS_HW_PATH          := vendor/qcom/opensource/commonsys/cryptfs_hw
@@ -103,6 +105,12 @@ TARGET_HW_DISK_ENCRYPTION       := true
 TW_INCLUDE_CRYPTO               := true
 PLATFORM_SECURITY_PATCH         := 2025-12-31
 
+# Qualcomm
+BOARD_USES_QCOM_HARDWARE        := true
+
+# Ramdisk
+BOARD_ROOT_EXTRA_FOLDERS := dsp efs firmware firmware-modem persist
+BOARD_ROOT_EXTRA_SYMLINKS += /data/tombstones:/tombstones
 # Recovery
 RECOVERY_VARIANT                := twrp
 TARGET_USERIMAGES_USE_EXT4      := true
@@ -129,6 +137,21 @@ BOARD_SUPPRESS_SECURE_ERASE     := true
 TW_INCLUDE_NTFS_3G              := true
 TW_NEW_ION_HEAP                 := true
 TW_INCLUDE_FB2PNG               := true
+TWRP_NEW_THEME                  := true
+
+# Use qcom power hal
+TARGET_POWERHAL_VARIANT := qcom
+TARGET_USES_CPU_BOOST_HINT := true
+
+# Android version
+PLATFORM_SDK_VERSION := 28
+
+### Qualcomm
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+
+# Custom TWRP Version
+# TW_DEVICE_VERSION := 
 
 ### When selecting in TWRP menu :
 ### Reboot to download mode -> reboot to recovery
