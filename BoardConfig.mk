@@ -61,7 +61,6 @@ BOARD_KERNEL_CMDLINE        := \
   ehci-hcd.park=3 \
   androidboot.bootdevice=7824900.sdhci \
   lpm_levels.sleep_disabled=1 \
-  loglevel=8 \
   earlyprintk
 BOARD_KERNEL_CMDLINE        += androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE       := 2048
@@ -174,6 +173,7 @@ TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 # Debug
 TWRP_INCLUDE_LOGCAT             := true
 TARGET_USES_LOGD                := true
+BOARD_KERNEL_CMDLINE            += loglevel=8
 # TWRP_EVENT_LOGGING            := true
 # TW_CRYPTO_SYSTEM_VOLD_DEBUG   := true
 
