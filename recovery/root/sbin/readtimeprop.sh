@@ -1,5 +1,8 @@
 #!/sbin/sh
+# Source : https://github.com/steadfasterX/android_device_lge_g4/blob/android-8.1/recovery/root/sbin/readtimeprop.sh
+# From steadfasterX / https://github.com/steadfasterX / https://forum.xda-developers.com/member.php?u=5545101
 # workaround script by steadfasterX to ensure time is correct
+# Edited by Akipe
 
 LOG=/tmp/recovery.log
 DEBUG=0
