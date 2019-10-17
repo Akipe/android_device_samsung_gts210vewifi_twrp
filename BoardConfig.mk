@@ -24,7 +24,7 @@
 # components.
 
 # OTA Assert
-TARGET_OTA_ASSERT_DEVICE := gts210vewifi
+TARGET_OTA_ASSERT_DEVICE    := gts210vewifi
 
 # Bootloader
 TARGET_NO_BOOTLOADER            := true
@@ -47,10 +47,14 @@ TARGET_2ND_CPU_ABI          := armeabi-v7a
 TARGET_2ND_CPU_ABI2         := armeabi
 TARGET_2ND_CPU_VARIANT      := cortex-a53
 
-ENABLE_CPUSETS    := true
-ENABLE_SCHEDBOOST := true
-
 TARGET_USES_64_BIT_BINDER   := true
+
+# Performance
+ENABLE_CPUSETS                      := true
+ENABLE_SCHEDBOOST                   := true
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+TARGET_POWERHAL_VARIANT             := qcom
+TARGET_USES_CPU_BOOST_HINT          := true
 
 #### Kernel
 BOARD_KERNEL_CMDLINE        := \
@@ -110,12 +114,21 @@ PLATFORM_SECURITY_PATCH         := 2025-12-31
 BOARD_USES_QCOM_HARDWARE        := true
 
 # Ramdisk
-BOARD_ROOT_EXTRA_FOLDERS := dsp efs firmware firmware-modem persist
-BOARD_ROOT_EXTRA_SYMLINKS += /data/tombstones:/tombstones
+BOARD_ROOT_EXTRA_FOLDERS        := dsp efs firmware firmware-modem persist
+BOARD_ROOT_EXTRA_SYMLINKS       += /data/tombstones:/tombstones
 
 # Display
 TARGET_RECOVERY_PIXEL_FORMAT    := "RGBA_8888" # RGBA_8888 not yet support in TWRP
 
+# Time
+TARGET_RECOVERY_QCOM_RTC_FIX    := false
+
+# Vibrator (disable, because no hardware support)
+TW_NO_HAPTICS                   := true
+TW_USE_QCOM_HAPTICS_VIBRATOR    := no
+
+# Android version
+PLATFORM_SDK_VERSION            := 28
 
 # Recovery
 RECOVERY_VARIANT                := twrp
@@ -142,24 +155,6 @@ TW_INCLUDE_NTFS_3G              := true
 TW_NEW_ION_HEAP                 := true
 TW_INCLUDE_FB2PNG               := true
 TWRP_NEW_THEME                  := true
-
-# Time
-TARGET_RECOVERY_QCOM_RTC_FIX := false
-
-# Disable vibration (no hardware support)
-TW_NO_HAPTICS := true
-TW_USE_QCOM_HAPTICS_VIBRATOR := no
-
-# Use qcom power hal
-TARGET_POWERHAL_VARIANT := qcom
-TARGET_USES_CPU_BOOST_HINT := true
-
-# Android version
-PLATFORM_SDK_VERSION := 28
-
-### Qualcomm
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Custom TWRP Version
 # TW_DEVICE_VERSION := 
@@ -188,9 +183,9 @@ TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/bin/debuggerd
 # strace
 TARGET_RECOVERY_DEVICE_MODULES      += strace
 TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/bin/strace
-# twrpdec
+# twrpdec, useful for debug decrypt with strace
 TARGET_RECOVERY_DEVICE_MODULES      += twrpdec
 TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_RECOVERY_ROOT_OUT)/sbin/twrpdec
-# timekeep
+# timekeep, for fix date with LineageOS and other ROMs
 TARGET_RECOVERY_DEVICE_MODULES      += timekeep
 TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/vendor/bin/timekeep
