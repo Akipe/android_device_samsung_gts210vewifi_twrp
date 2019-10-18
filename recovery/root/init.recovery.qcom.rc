@@ -1,20 +1,4 @@
-# steadfasterX: fix time in TWRP (read timekeep value from ROM)
-service getadjust /sbin/sh /sbin/readtimeprop.sh
-    oneshot
-    disabled
-    seclabel u:r:recovery:s0
-
-# steadfasterX: fix time in TWRP (restore timekeep value from CM/AOSP based ROMs)
-service timekeep /sbin/timekeep restore
-    oneshot
-    disabled
-    seclabel u:r:recovery:s0
-
-# steadfasterX: fix time in TWRP (restore by qcom time_daemon for STOCK bases ROMs)
-service time_daemon /sbin/time_daemon
-    oneshot
-    disabled
-    seclabel u:r:recovery:s0
+import init.fixtime.rc
 
 # separate copy needed to use /sbin/linker64 instead of /system/bin/linker64
 service sbinqseecomd /sbin/qseecomd
@@ -40,11 +24,6 @@ on init
     mkdir /persist 0771 system system
     mkdir /preload 0771 system system
 
-on boot
-    #steadfasterX: read property from ROM (after /data is available)
-    #load_persist_props_action
-    start getadjust
-
 on fs
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
@@ -57,19 +36,3 @@ on property:ro.crypto.state=encrypted
 
 on property:sys.listeners.registered=true
     start keymaster-3-0
-
-on property:twrp.timeadjusted=1
-    #steadfasterX: update time to value from CM/AOSP based ROMs (after time property was written)
-    start timekeep
-
-on property:twrp.timedaemon=1
-    #steadfasterX: update time to value from STOCK based ROMs (after we detect qcom time file)
-    start time_daemon
-
-on property:tmp.data.mount=true
-    load_persist_props
-
-#on load_persist_props_action
-#    load_persist_props
-#    # Load persist properties and override properties (if enabled) from /data.
-#    trigger load_persist_props_action
