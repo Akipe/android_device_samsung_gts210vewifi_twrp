@@ -167,25 +167,31 @@ TWRP_NEW_THEME                  := true
 # TW_HAS_DOWNLOAD_MODE            := true 
 
 # Debug
-TWRP_INCLUDE_LOGCAT             := true
-TARGET_USES_LOGD                := true
-BOARD_KERNEL_CMDLINE            += loglevel=8
-# TWRP_EVENT_LOGGING            := true
-# TW_CRYPTO_SYSTEM_VOLD_DEBUG   := true
+# Activate when eng build
+ifeq ($(TARGET_BUILD_VARIANT),eng)
+  TWRP_INCLUDE_LOGCAT           := true
+  TARGET_USES_LOGD              := true
+  # TWRP_EVENT_LOGGING            := true
+  TW_CRYPTO_SYSTEM_VOLD_DEBUG   := true
+  BOARD_KERNEL_CMDLINE          += loglevel=8
+endif
 
 #### Modules
 # timezone
 TARGET_RECOVERY_DEVICE_MODULES      += tzdata
 TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/usr/share/zoneinfo/tzdata
-# debuggerd
-TARGET_RECOVERY_DEVICE_MODULES      += debuggerd
-TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/bin/debuggerd
-# strace
-TARGET_RECOVERY_DEVICE_MODULES      += strace
-TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/bin/strace
-# twrpdec, useful for debug decrypt with strace
-TARGET_RECOVERY_DEVICE_MODULES      += twrpdec
-TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_RECOVERY_ROOT_OUT)/sbin/twrpdec
 # timekeep, for fix date with LineageOS and other ROMs
 TARGET_RECOVERY_DEVICE_MODULES      += timekeep
 TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/vendor/bin/timekeep
+# Modules for debug
+ifeq ($(TARGET_BUILD_VARIANT),eng)
+  # debuggerd
+  TARGET_RECOVERY_DEVICE_MODULES      += debuggerd
+  TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/bin/debuggerd
+  # strace
+  TARGET_RECOVERY_DEVICE_MODULES      += strace
+  TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/bin/strace
+  # twrpdec, useful for debug decrypt with strace
+  TARGET_RECOVERY_DEVICE_MODULES      += twrpdec
+  TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_RECOVERY_ROOT_OUT)/sbin/twrpdec
+endif
