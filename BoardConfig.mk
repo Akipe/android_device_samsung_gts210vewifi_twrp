@@ -118,7 +118,7 @@ BOARD_ROOT_EXTRA_FOLDERS        := dsp efs firmware firmware-modem persist
 BOARD_ROOT_EXTRA_SYMLINKS       += /data/tombstones:/tombstones
 
 # Display
-TARGET_RECOVERY_PIXEL_FORMAT    := "RGBA_8888" # RGBA_8888 not yet support in TWRP
+TARGET_RECOVERY_PIXEL_FORMAT    := "RGBX_8888" # RGBA_8888 not yet support in TWRP
 
 # Time
 TARGET_RECOVERY_QCOM_RTC_FIX    := false
