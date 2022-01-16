@@ -58,9 +58,9 @@ TARGET_USES_CPU_BOOST_HINT          := true
 
 #### Kernel
 BOARD_KERNEL_CMDLINE        := \
-  console=null \
+  console=ttyHSL0,115200,n8 \
+  androidboot.console=ttyHSL0 \
   androidboot.hardware=qcom \
-  androidboot.wificountrycode=00 \
   msm_rtb.filter=0x237 \
   ehci-hcd.park=3 \
   androidboot.bootdevice=7824900.sdhci \
