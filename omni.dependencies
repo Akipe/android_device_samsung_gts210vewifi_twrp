@@ -11,4 +11,10 @@
     "target_path": "hardware/sony/timekeep",
     "revision": "lineage-16.0"
   }
+  {
+    "remote":      "github",
+    "repository":  "TeamWin/android_device_qcom_twrp-common",
+    "target_path": "device/qcom/twrp-common",
+    "revision":    "android-9.0"
+  }
 ]

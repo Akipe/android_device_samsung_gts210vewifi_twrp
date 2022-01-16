@@ -107,8 +107,10 @@ TARGET_PLATFORM_DEVICE_BASE     := /devices/soc.0/
 # Full disk encryption
 TARGET_CRYPTFS_HW_PATH          := vendor/qcom/opensource/commonsys/cryptfs_hw
 TARGET_HW_DISK_ENCRYPTION       := true
+BOARD_USES_QCOM_DECRYPTION := true
 TW_INCLUDE_CRYPTO               := true
 PLATFORM_SECURITY_PATCH         := 2025-12-31
+VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE        := true

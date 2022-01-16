@@ -27,6 +27,10 @@ PRODUCT_PACKAGES += \
 	charger \
 	timekeep
 
+# Encryption
+PRODUCT_PACKAGES += \
+    qcom_decrypt
+
 PRODUCT_NAME            := omni_gts210vewifi
 PRODUCT_DEVICE          := gts210vewifi
 PRODUCT_BRAND           := samsung
