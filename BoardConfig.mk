@@ -158,6 +158,7 @@ TW_NEW_ION_HEAP                 := true
 TW_INCLUDE_FB2PNG               := true
 TWRP_NEW_THEME                  := true
 TW_INCLUDE_REPACKTOOLS := true
+TW_INCLUDE_RESETPROP := true
 
 # Custom TWRP Version
 # TW_DEVICE_VERSION := 
