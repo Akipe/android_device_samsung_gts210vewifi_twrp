@@ -179,9 +179,6 @@ ifeq ($(TARGET_BUILD_VARIANT),eng)
 endif
 
 #### Modules
-# timezone
-TARGET_RECOVERY_DEVICE_MODULES      += tzdata
-TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/usr/share/zoneinfo/tzdata
 # timekeep, for fix date with LineageOS and other ROMs
 TARGET_RECOVERY_DEVICE_MODULES      += timekeep
 TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/vendor/bin/timekeep

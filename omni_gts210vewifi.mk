@@ -31,6 +31,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     qcom_decrypt
 
+# tzdata
+PRODUCT_PACKAGES += \
+    tzdata_twrp
+
 PRODUCT_NAME            := omni_gts210vewifi
 PRODUCT_DEVICE          := gts210vewifi
 PRODUCT_BRAND           := samsung
