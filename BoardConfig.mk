@@ -148,6 +148,7 @@ TW_NEW_ION_HEAP                 := true
 TW_INCLUDE_FB2PNG               := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_RESETPROP := true
+TW_SCREEN_BLANK_ON_BOOT := true
 
 # Custom TWRP Version
 # TW_DEVICE_VERSION := 
@@ -156,8 +157,8 @@ TW_INCLUDE_RESETPROP := true
 ### Reboot to download mode -> reboot to recovery
 ### Reboot to bootloader    -> reboot to download mode
 ### So we do not need to activate the following two options
-# TW_NO_REBOOT_BOOTLOADER         := true
-# TW_HAS_DOWNLOAD_MODE            := true 
+TW_HAS_DOWNLOAD_MODE := true
+TW_NO_REBOOT_BOOTLOADER := true
 
 # Debug
 # Activate when eng build
@@ -167,6 +168,9 @@ ifeq ($(TARGET_BUILD_VARIANT),eng)
   # TWRP_EVENT_LOGGING            := true
   TW_CRYPTO_SYSTEM_VOLD_DEBUG   := true
   BOARD_KERNEL_CMDLINE          += loglevel=8
+else
+  TW_EXCLUDE_BASH := true
+  TW_EXCLUDE_NANO := true
 endif
 
 #### Modules

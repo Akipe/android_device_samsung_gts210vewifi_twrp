@@ -22,6 +22,13 @@ $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-he
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common_tablet.mk)
 
+# USB
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
+    persist.service.adb.enable=1 \
+    persist.sys.usb.config=adb \
+    service.adb.root=1
+
 PRODUCT_PACKAGES += \
 	charger_res_images \
 	charger \
