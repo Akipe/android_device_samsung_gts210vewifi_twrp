@@ -23,6 +23,9 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
+# For building with minimal manifest
+ALLOW_MISSING_DEPENDENCIES := true
+
 # OTA Assert
 TARGET_OTA_ASSERT_DEVICE    := gts210vewifi
 
