@@ -29,9 +29,13 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.usb.config=adb \
     service.adb.root=1
 
+# Charger
 PRODUCT_PACKAGES += \
 	charger_res_images \
-	charger \
+	charger
+
+# timekeep
+PRODUCT_PACKAGES += \
 	timekeep
 
 # Encryption
@@ -42,8 +46,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     tzdata_twrp
 
-PRODUCT_NAME            := omni_gts210vewifi
-PRODUCT_DEVICE          := gts210vewifi
-PRODUCT_BRAND           := samsung
-PRODUCT_MANUFACTURER    := samsung
-PRODUCT_MODEL           := SM-T813
+PRODUCT_NAME := omni_gts210vewifi
+PRODUCT_DEVICE := gts210vewifi
+PRODUCT_BRAND := samsung
+PRODUCT_MANUFACTURER := samsung
+PRODUCT_MODEL := SM-T813

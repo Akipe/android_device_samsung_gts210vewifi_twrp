@@ -18,5 +18,5 @@
 /efs3		    emmc        /dev/block/bootdevice/by-name/modemst2          flags=subpartitionof=/efs1;backup=1
 /persdata		ext4        /dev/block/bootdevice/by-name/persdata          flags=backup=1
 
-/external_sd        auto        /dev/block/mmcblk1p1    /dev/block/mmcblk1      flags=display="Micro SDCard";storage;wipeingui;removable;encryptable=footer;length=-16384
+/external_sd    auto        /dev/block/mmcblk1p1    /dev/block/mmcblk1      flags=display="Micro SDCard";storage;wipeingui;removable;encryptable=footer;length=-16384
 /usb-otg        auto        /dev/block/sda1         /dev/block/sda          flags=display="USB OTG";storage;wipeingui;removable
