@@ -52,13 +52,6 @@ TARGET_2ND_CPU_VARIANT      := cortex-a53.a57
 
 TARGET_USES_64_BIT_BINDER   := true
 
-# Performance
-ENABLE_CPUSETS                      := true
-ENABLE_SCHEDBOOST                   := true
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
-TARGET_POWERHAL_VARIANT             := qcom
-TARGET_USES_CPU_BOOST_HINT          := true
-
 #### Kernel
 BOARD_KERNEL_CMDLINE        := \
   console=ttyHSL0,115200,n8 \
@@ -102,10 +95,7 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE   := 33554432
 BOARD_RECOVERYIMAGE_PARTITION_SIZE  := 33554432
 BOARD_SYSTEMIMAGE_PARTITION_SIZE    := 4404019200
 BOARD_USERDATAIMAGE_PARTITION_SIZE  := 26268905472
-BOARD_FLASH_BLOCK_SIZE              := 131072
-
-# Init
-TARGET_PLATFORM_DEVICE_BASE     := /devices/soc.0/
+BOARD_FLASH_BLOCK_SIZE              := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 
 # Full disk encryption
 TARGET_CRYPTFS_HW_PATH          := vendor/qcom/opensource/commonsys/cryptfs_hw
@@ -130,7 +120,6 @@ TARGET_RECOVERY_QCOM_RTC_FIX    := false
 
 # Vibrator (disable, because no hardware support)
 TW_NO_HAPTICS                   := true
-TW_USE_QCOM_HAPTICS_VIBRATOR    := no
 
 # Android version
 PLATFORM_SDK_VERSION            := 28
@@ -152,14 +141,11 @@ TW_INPUT_BLACKLIST              := "hbtp_vm"
 TW_CUSTOM_CPU_TEMP_PATH         := /sys/devices/virtual/thermal/thermal_zone1/temp
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 RECOVERY_SDCARD_ON_DATA         := true
-TW_DEFAULT_EXTERNAL_STORAGE     := true
 TW_EXTRA_LANGUAGES              := true
 TW_EXCLUDE_TWRPAPP              := true
-BOARD_SUPPRESS_SECURE_ERASE     := true
 TW_INCLUDE_NTFS_3G              := true
 TW_NEW_ION_HEAP                 := true
 TW_INCLUDE_FB2PNG               := true
-TWRP_NEW_THEME                  := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_RESETPROP := true
 
