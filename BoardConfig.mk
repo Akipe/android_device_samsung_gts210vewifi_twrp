@@ -102,7 +102,7 @@ TARGET_CRYPTFS_HW_PATH          := vendor/qcom/opensource/commonsys/cryptfs_hw
 TARGET_HW_DISK_ENCRYPTION       := true
 BOARD_USES_QCOM_DECRYPTION := true
 TW_INCLUDE_CRYPTO               := true
-PLATFORM_SECURITY_PATCH         := 2025-12-31
+PLATFORM_SECURITY_PATCH         := 2099-12-31
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # Qualcomm
